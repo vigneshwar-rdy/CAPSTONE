@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="<%= csrfToken %>" />
+    <link href="./css/styles.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title><%= election.name%></title>
+    
+  </head>
+  <body>
+    <div class="grid grid-cols-6">
+      <div class="col-start-3 col-span-2">
+        <%- include('header.ejs') %>
+        <h1 class="font-bold mb-5">Election : <%= election.name %></h1>
+        <a
+          href="/signout"
+          class="bg-red-600 text-white px-2 py-5 rounded font-mediium py-1.5"
+          >Sign out</a
+        >
+        <div class="mt-2">
+          <!-- tobe -->
+          <div class="mt-2">
+            <a href="/elections/<%= electionId%>/questions">Manage Questions</a>
+          </div>
+          <div class="mt-2">
+            <a href="/elections/<%= electionId%>/voters">Manage voters</a>
+          </div>
+          <div class="mt-2">
+            <a href="/elections/<%= electionId%>/launch">Launch election</a>
+          </div>
+        </div>
+
+        <div><%-include("footer.ejs") %></div>
+      </div>
+    </div>
+  </body>
+</html>
